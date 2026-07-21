@@ -97,7 +97,7 @@ const jsonLd = {
       name: 'STEM Educator',
     },
   },
-  email: 'jstembotix@gmail.com',
+  email: 'robotecheducation1@gmail.com',
   address: {
     '@type': 'PostalAddress',
     addressCountry: 'IN',
