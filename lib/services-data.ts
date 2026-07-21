@@ -15,7 +15,7 @@ export const services: Service[] = [
     title: 'ATL Expert Lecture',
     icon: 'GraduationCap',
     duration: '1–3 Hours',
-    price: '₹1500',
+    price: '₹1000',
     features: [
       'ATL Awareness',
       'Innovation',
@@ -41,7 +41,7 @@ export const services: Service[] = [
     id: 'innovation-club-training',
     title: 'Innovation Club Training',
     icon: 'Lightbulb',
-    price: '₹1500',
+    price: '₹1000',
     features: [
       'Innovation Activities',
       'Prototype Development',
@@ -54,7 +54,7 @@ export const services: Service[] = [
     id: 'ai-robotics-lab-training',
     title: 'AI Robotics Lab Training',
     icon: 'Cpu',
-    price: '₹1500',
+    price: '₹1000',
     features: [
       'Artificial Intelligence',
       'Machine Learning Basics',
@@ -85,7 +85,7 @@ export const services: Service[] = [
     id: 'student-startup-mentorship',
     title: 'Student Startup Mentorship (SSIP)',
     icon: 'Rocket',
-    price: '₹1000',
+    price: '₹500',
     priceNote: 'per Team',
     features: [
       'Idea Selection',
