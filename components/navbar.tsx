@@ -23,64 +23,77 @@ export function Navbar() {
 
   useEffect(() => {
     setMounted(true);
+
     const handleScroll = () => setScrolled(window.scrollY > 30);
+
     window.addEventListener('scroll', handleScroll);
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
+
     const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: 'smooth' });
+
+    if (el) {
+      el.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }
   };
 
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      transition={{ duration: 0.6 }}
       className={cn(
-        'fixed left-0 right-0 top-0 z-50 transition-all duration-500',
+        'fixed inset-x-0 top-0 z-[9999]',
         scrolled
-          ? 'glass border-b border-border/40 py-3 shadow-sm'
+          ? 'glass border-b border-border/40 py-3'
           : 'bg-transparent py-5'
       )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+
         {/* Logo */}
         <button
           onClick={() => handleNavClick('#home')}
           className="flex items-center gap-2"
         >
-          <div className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-yellow-400 to-amber-500 shadow-lg">
+          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-yellow-400 to-amber-500">
             <Cpu className="h-5 w-5 text-zinc-900" />
           </div>
-          <span className="font-display text-lg font-bold tracking-tight">
+
+          <span className="font-display text-lg font-bold">
             ROBOTECH <span className="text-gradient-gold">EDUCATION</span>
           </span>
         </button>
 
-        {/* Desktop nav */}
+        {/* Desktop Menu */}
         <div className="hidden items-center gap-1 lg:flex">
           {navLinks.map((link) => (
             <button
               key={link.href}
               onClick={() => handleNavClick(link.href)}
-              className="relative rounded-lg px-4 py-2 text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
+              className="rounded-lg px-4 py-2 text-sm hover:text-yellow-500"
             >
               {link.label}
             </button>
           ))}
         </div>
 
-        {/* Actions */}
+        {/* Right Side */}
         <div className="flex items-center gap-2">
+
           {mounted && (
             <Button
               variant="ghost"
               size="icon"
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              aria-label="Toggle theme"
+              onClick={() =>
+                setTheme(theme === 'dark' ? 'light' : 'dark')
+              }
             >
               {theme === 'dark' ? (
                 <Sun className="h-5 w-5" />
@@ -89,49 +102,58 @@ export function Navbar() {
               )}
             </Button>
           )}
+
           <Button
             onClick={() => handleNavClick('#book')}
-            className="hidden bg-gradient-to-r from-yellow-400 to-amber-500 text-zinc-900 hover:from-yellow-500 hover:to-amber-600 sm:flex"
+            className="hidden sm:flex bg-gradient-to-r from-yellow-400 to-amber-500 text-zinc-900"
           >
             Book Workshop
           </Button>
+
           <Button
             variant="ghost"
             size="icon"
             className="lg:hidden"
-            onClick={() => setMobileOpen((v) => !v)}
-            aria-label="Menu"
+            onClick={() => setMobileOpen(!mobileOpen)}
           >
-            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {mobileOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </Button>
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden lg:hidden"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.25 }}
+            className="absolute left-0 top-full z-[9999] w-full bg-background border-t border-border shadow-2xl lg:hidden"
           >
-            <div className="mx-4 mt-3 space-y-1 rounded-2xl glass-card p-4">
+            <div className="space-y-2 p-5">
+
               {navLinks.map((link) => (
                 <button
                   key={link.href}
                   onClick={() => handleNavClick(link.href)}
-                  className="block w-full rounded-lg px-4 py-3 text-left text-sm font-medium hover:bg-accent/10"
+                  className="block w-full rounded-lg px-4 py-3 text-left font-medium hover:bg-muted"
                 >
                   {link.label}
                 </button>
               ))}
+
               <Button
                 onClick={() => handleNavClick('#book')}
-                className="mt-2 w-full bg-gradient-to-r from-yellow-400 to-amber-500 text-zinc-900 hover:from-yellow-500 hover:to-amber-600"
+                className="mt-4 w-full bg-gradient-to-r from-yellow-400 to-amber-500 text-zinc-900"
               >
                 Book Workshop
               </Button>
+
             </div>
           </motion.div>
         )}
