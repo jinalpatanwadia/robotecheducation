@@ -24,30 +24,25 @@ export async function submitToGoogleForm(
     params.append(googleFormConfig.entryIds.message, data.message);
   }
 
-  try {
-    const response = await fetch(googleFormConfig.formUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: params.toString(),
-    });
+ try {
+  await fetch(googleFormConfig.formUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: params.toString(),
+    redirect: 'follow',
+  });
 
-    if (!response.ok) {
-      return {
-        success: false,
-        message: 'Failed to submit. Please try again or contact us directly.',
-      };
-    }
+  return {
+    success: true,
+    message: 'Your workshop inquiry has been submitted successfully!',
+  };
+} catch (error) {
+  console.error('Google Form Error:', error);
 
-    return {
-      success: true,
-      message: 'Your workshop inquiry has been submitted successfully!',
-    };
-  } catch {
-    return {
-      success: false,
-      message: 'Network error. Please check your connection and try again.',
-    };
-  }
+  return {
+    success: false,
+    message: 'Network error. Please try again.',
+  };
 }
