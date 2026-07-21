@@ -124,23 +124,28 @@ export default function RootLayout({
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd),
+          }}
         />
       </head>
+
       <body
         className={`${poppins.variable} ${spaceGrotesk.variable} font-sans antialiased`}
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
-          enableSystem
+          defaultTheme="light"
+          enableSystem={false}
           disableTransitionOnChange
         >
           <LoadingScreen />
           <BackgroundEffects />
           <CursorGlow />
           <ScrollProgress />
+
           {children}
+
           <BackToTop />
           <FloatingContact />
         </ThemeProvider>
