@@ -43,7 +43,8 @@ export function Footer() {
             </p>
             <div className="mt-6 flex gap-3">
               {[
-                { icon: Mail, href: 'mailto:jstembotix@gmail.com' },
+                { icon: Mail, href: 'mailto:robotecheducation1@gmail.com
+' },
                 { icon: Linkedin, href: '#' },
                 { icon: Instagram, href: '#' },
                 { icon: Youtube, href: '#' },
@@ -107,11 +108,12 @@ export function Footer() {
             <ul className="mt-4 space-y-3">
               <li>
                 <a
-                  href="mailto:jstembotix@gmail.com"
+                  href="mailto:robotecheducation1@gmail.com"
                   className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-yellow-500"
                 >
                   <Mail className="h-4 w-4" />
-                  jstembotix@gmail.com
+                  robotecheducation1@gmail.com
+
                 </a>
               </li>
               <li>
