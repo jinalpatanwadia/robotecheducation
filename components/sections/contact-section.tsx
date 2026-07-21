@@ -36,7 +36,7 @@ export function ContactSection() {
                 <div className="absolute inset-0 animate-pulse-glow rounded-full bg-yellow-400/20 blur-2xl" />
 
                 <a
-                  href="mailto:jstembotix@gmail.com?subject=Workshop Inquiry - Robotech Education&body=Hello Robotech Education,%0A%0AI would like to know more about your AI & Robotics Training Programs.%0A%0ASchool/College:%0ADesignation:%0AContact Number:%0AService Required:%0APreferred Date:%0A%0AThank you."
+                  href="mailto:robotecheducation1@gmail.com?subject=Workshop Inquiry - Robotech Education&body=Hello Robotech Education,%0A%0AI would like to know more about your AI & Robotics Training Programs.%0A%0ASchool/College:%0ADesignation:%0AContact Number:%0AService Required:%0APreferred Date:%0A%0AThank you."
                   className="relative flex items-center gap-4 rounded-2xl bg-gradient-to-br from-yellow-400/10 to-amber-500/5 p-5 transition-all hover:glow-yellow"
                 >
                   <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-yellow-400 to-amber-500 shadow-lg">
@@ -48,7 +48,7 @@ export function ContactSection() {
                       Email us at
                     </p>
                     <p className="font-display text-lg font-bold">
-                      jstembotix@gmail.com
+                      robotecheducation1@gmail.com
                     </p>
                   </div>
                 </a>
@@ -69,7 +69,7 @@ export function ContactSection() {
                 size="lg"
                 className="bg-gradient-to-r from-yellow-400 to-amber-500 text-zinc-900 font-semibold hover:from-yellow-500 hover:to-amber-600 transition-all duration-300 hover:scale-105"
               >
-                <a href="mailto:jstembotix@gmail.com?subject=Workshop Inquiry - Robotech Education&body=Hello Robotech Education,%0A%0AI would like to know more about your AI & Robotics Training Programs.%0A%0ASchool/College:%0ADesignation:%0AContact Number:%0AService Required:%0APreferred Date:%0A%0AThank you.">
+                <a href="mailto:robotecheducation1@gmail.com?subject=Workshop Inquiry - Robotech Education&body=Hello Robotech Education,%0A%0AI would like to know more about your AI & Robotics Training Programs.%0A%0ASchool/College:%0ADesignation:%0AContact Number:%0AService Required:%0APreferred Date:%0A%0AThank you.">
                   <Send className="mr-2 h-5 w-5" />
                   Send Email
                 </a>
