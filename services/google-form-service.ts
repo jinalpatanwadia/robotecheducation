@@ -20,29 +20,31 @@ export async function submitToGoogleForm(
   params.append(googleFormConfig.entryIds.city, data.city);
   params.append(googleFormConfig.entryIds.service, data.service);
   params.append(googleFormConfig.entryIds.preferredDate, data.preferredDate);
+
   if (data.message) {
     params.append(googleFormConfig.entryIds.message, data.message);
   }
 
- try {
-  await fetch(googleFormConfig.formUrl, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    body: params.toString(),
-    redirect: 'follow',
-  });
+  try {
+    await fetch(googleFormConfig.formUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: params.toString(),
+      redirect: 'follow',
+    });
 
-  return {
-    success: true,
-    message: 'Your workshop inquiry has been submitted successfully!',
-  };
-} catch (error) {
-  console.error('Google Form Error:', error);
+    return {
+      success: true,
+      message: 'Your workshop inquiry has been submitted successfully!',
+    };
+  } catch (error) {
+    console.error('Google Form Error:', error);
 
-  return {
-    success: false,
-    message: 'Network error. Please try again.',
-  };
+    return {
+      success: false,
+      message: 'Network error. Please try again.',
+    };
+  }
 }
